@@ -1,0 +1,40 @@
+# File: pipelines/azure-pipelines.yml
+
+trigger:
+  branches:
+    include:
+      - main  # triggers on pushes to main branch
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+
+# Install .NET 10 SDK
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '10.0.3'
+    includePreviewVersions: false
+
+# Restore NuGet packages for all projects in src
+- script: dotnet restore src/**/*.csproj
+  displayName: 'Restore NuGet packages'
+
+# Build the entire solution in Release configuration
+- script: dotnet build src/**/*.sln --configuration $(buildConfiguration) --no-restore
+  displayName: 'Build solution'
+
+# Run tests (if any exist)
+- script: dotnet test src/**/*.sln --configuration $(buildConfiguration) --no-build --verbosity normal
+  displayName: 'Run tests'
+
+# Publish build artifacts (drop folder)
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/src'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
