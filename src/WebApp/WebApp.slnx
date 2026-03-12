@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../ApiApp/ApiApp.csproj" />
+  <Project Path="../DataAccess/DataAccess.csproj" />
+  <Project Path="WebApp.csproj" />
+</Solution>

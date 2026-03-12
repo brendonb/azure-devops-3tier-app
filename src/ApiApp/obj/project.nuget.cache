@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "J9Fqkj7L/z4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\brendon\\source\\repos\\azure-devops-3tier-app\\src\\ApiApp\\ApiApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\brendon\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\brendon\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
